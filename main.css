@@ -1,0 +1,38 @@
+/* So far, the plan is to make the top where the toggle options are & the bottom will be for the actual roll results
+*/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 1px solid red;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
+
+button {
+    /*justify-self: center;*/
+    max-width: 30%;
+    padding: 10px;
+    border-radius: 5px;
+}
+.top{
+    display: grid;
+    grid-template-rows: 1fr;
+    background-color: grey;
+    align-content: center;
+}
+
+.bottom{
+    display: grid;
+    grid-template-rows: 2fr;
+    background-color: chartreuse;
+    min-height: 100%;
+}
+
