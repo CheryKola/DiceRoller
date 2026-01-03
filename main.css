@@ -5,7 +5,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    border: 1px solid red;
 }
 
 html {
@@ -22,17 +21,39 @@ button {
     padding: 10px;
     border-radius: 5px;
 }
-.top{
+.grid_container{
+    min-height: 100vh;
     display: grid;
-    grid-template-rows: 1fr;
-    background-color: grey;
-    align-content: center;
+    grid-template-rows: auto auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "input input settings"
+    "buttons buttons settings"
+    "results results results";
 }
 
-.bottom{
-    display: grid;
-    grid-template-rows: 2fr;
-    background-color: chartreuse;
-    min-height: 100%;
+.input {
+    grid-area: input;
+    background-color: blueviolet;
 }
 
+.buttons {
+    grid-area: buttons;
+    background-color: green;
+}
+
+.settings {
+    grid-area: settings;
+    background-color: brown;
+}
+
+.bottom {
+    grid-area: results;
+    border: 2px solid lightgrey;
+    background-color: black;
+    color: green;
+}
+
+p{
+    font-size: 32px;
+}
