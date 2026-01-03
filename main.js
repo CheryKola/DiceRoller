@@ -14,31 +14,39 @@ let submitButton = document.getElementById('submit_button');
 let clearButton = document.getElementById('clear_button');
 
 const diceRoller = (x) => {
-    for (let i = x; i > 0; i--){
-        diceRollResults.unshift(Math.ceil(Math.random() * 6));
+    let numOfRolls = Number(numOfRollsInput.value);
+    if (diceRollResults.length = numOfRolls){
+        diceRollResults = [];
     }
-    let stringRoll = diceRollResults.join(' , ');
-    return stringRoll;
+    for (let i = x; i > 0; i--){
+        diceRollResults.push(Math.ceil(Math.random() * 6));
+        console.log(`DiceRollResults: ${diceRollResults}`)
+    }
+    return diceRollResults.join(' , ');
+}
+
+const clearResults = () => {
+    diceRollResults = [];
+    historyResults = [];
+    results.innerHTML = '';
 }
 
 const updateResults = () => {
+    console.log('Submit Button Pressed')
     let numOfRolls = Number(numOfRollsInput.value);
     results.innerHTML = diceRoller(numOfRolls);
-}
-
-const updateResultsKey = (keypress) =>{
-    if (keypress.key === "Enter"){
-        updateResults();
-    }
+    console.log(`History Array: ${historyResults}`);
+    
 }
 
 /*const sortResults = () => {
 
 }*/
 
-const clearResults = () => {
-    diceRollResults = [];
-    results.innerHTML = '';
+const updateResultsKey = (keypress) =>{
+    if (keypress.key === "Enter"){
+        updateResults();
+    }
 }
 
 const clearResultsKey = (keypress) =>{
@@ -48,8 +56,6 @@ const clearResultsKey = (keypress) =>{
 }
 
 submitButton.addEventListener('click', updateResults);
-//Enter Key for updateResults
 document.addEventListener('keydown', updateResultsKey);
 clearButton.addEventListener('click', clearResults);
-//Delete Key for clearResults
 document.addEventListener('keydown', clearResultsKey); 
